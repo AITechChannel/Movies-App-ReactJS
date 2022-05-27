@@ -1,0 +1,30 @@
+@use '../../../scss/' as *;
+.btn {
+    padding: 8px 30px;
+    border-radius: 999px;
+    font-size: 2.4rem;
+}
+.btn + .btn {
+    margin-left: 16px;
+}
+
+.primary {
+    background-color: $main-color;
+    color: $white;
+    box-shadow: 0 0 7px 8px rgb(255 0 0 / 30%);
+    border: 4px solid $main-color;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+        box-shadow: 0 0 7px 15px rgb(255 0 0 / 30%);
+    }
+}
+
+.outline {
+    border: 4px solid $white;
+    background-color: rgba($color: #000000, $alpha: 0);
+    color: $white;
+    &:hover {
+        background-color: $white;
+        color: $main-color;
+    }
+}

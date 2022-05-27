@@ -42,7 +42,10 @@ a {
 
 input,
 button {
-    outline: 0;
+    outline: none;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 ul {

@@ -3,44 +3,35 @@ import { useState, useEffect } from 'react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import apiConfig from '~/api/apiConfig';
-import './styles.module.scss';
-import Styles from './styles.module.scss';
+import Styles from './SlideItem.module.scss';
 import tmdbApi, { category, movieType } from '~/api/tmdbApi';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Button from '~/components/GlobalComponents/Button';
 const cx = classNames.bind(Styles);
 
-function SlideItem({ className, item }) {
-    const [movies, setMovies] = useState([]);
-    useEffect(() => {
-        const getMovies = async () => {
-            const params = { page: 1 };
-            try {
-                const res = await tmdbApi.getMoviesList(movieType.popular, { params });
-                setMovies(res.results.slice(0, 4));
-            } catch (error) {}
-        };
-        getMovies();
-    }, []);
-    console.log(movies);
-    // const background = apiConfig.originalImage();
-
+function SlideItem({ movie, className }) {
     return (
-        <>
-            {movies.map((e, i) => (
-                <div
-                    style={{ backgroundImage: `url(${apiConfig.originalImage(e.backdrop_path)})` }}
-                    className={cx('container')}
-                >
-                    <div className={cx('image')}>
-                        <img src={apiConfig.originalImage(e.poster_path)} />
-                    </div>
-                    <div className={cx('content')}>
-                        <h2>{e.title}</h2>
-                        <p>{e.overview}</p>
+        <div className={cx('container')}>
+            <div
+                style={{
+                    backgroundImage: `url(${apiConfig.originalImage(movie.backdrop_path)})`,
+                }}
+                className={cx('inner')}
+            >
+                <div className={cx('content')}>
+                    <h2>{movie.title}</h2>
+                    <p>{movie.overview}</p>
+                    <div className={cx('action')}>
+                        <Button primary> Watch now </Button>
+                        <Button outline> Watch trailer</Button>
                     </div>
                 </div>
-            ))}
-        </>
+                <div className={cx('image')}>
+                    <img src={apiConfig.w500Image(movie.poster_path)} />
+                </div>
+            </div>
+        </div>
     );
     // return <div className={cx('container')} style={{ backgroundImage: `url(${item.poster_path})` }}></div>;
 }
