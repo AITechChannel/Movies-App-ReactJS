@@ -1,24 +1,86 @@
 @use '../../scss/' as *;
-.header {
-    .wrap {
-        display: flex;
-        justify-content: space-between;
-        .logo {
-            width: 50px;
-            height: 50px;
-            font-size: 2rem;
 
-            display: flex;
-            img {
-                width: 100%;
-                margin-right: 10px;
+.header {
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    transition: height 0.3 ease, background-color 0.3 ease;
+
+    &.shink {
+        height: $header-shrink-height;
+        background-color: $body-bg;
+    }
+}
+
+.wrap {
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+    @include mobile {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        font-size: 4rem;
+
+        display: flex;
+        align-items: center;
+        img {
+            width: 100%;
+            margin-right: 10px;
+            @include mobile {
+                width: 30px;
+                margin-right: 0;
             }
         }
-        .nav {
-            display: flex;
-            .item {
-                padding: 10px 20px;
+    }
+    .nav {
+        display: flex;
+        font-size: 2.4rem;
+        .item {
+            position: relative;
+            margin: 0 10px;
+            padding: 10px 0;
+            &::after {
+                content: '';
+                bottom: 0;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                background-color: $main-color;
+                width: 0;
+                transition: width 0.5s ease;
             }
+            &.active::after,
+            &:hover::after {
+                width: 100%;
+            }
+            a {
+                padding: 10px 10px;
+            }
+        }
+
+        @include mobile {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-color: $body-bg;
+            padding: 0 2rem;
         }
     }
 }

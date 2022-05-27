@@ -8,12 +8,12 @@
 }
 
 html {
-    font-size: 100%;
+    font-size: 62.5%;
     @include tablet {
-        font-size: 80%;
+        font-size: 50%;
     }
     @include mobile {
-        font-size: 60%;
+        font-size: 37.5%;
     }
 }
 
@@ -36,6 +36,7 @@ a {
 @media (hover: hover) {
     a:hover {
         color: $main-color;
+        transition: 0.2s ease;
     }
 }
 

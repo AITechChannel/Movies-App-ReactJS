@@ -13,9 +13,11 @@ const headerNav = [
 ];
 
 function Header() {
-    const { pathName } = useLocation;
+    const { pathname } = useLocation();
+    console.log(pathname);
     const headerRef = useRef();
-    // const active = headerNav.findIndex((e) => e.path === pathName);
+    const active = headerNav.findIndex((e) => e.path === pathname);
+    console.log(active);
     return (
         <div ref={headerRef} className={cx('header')}>
             <div className={cx('wrap', 'container')}>
@@ -25,7 +27,7 @@ function Header() {
                 </div>
                 <ul className={cx('nav')}>
                     {headerNav.map((e, i) => (
-                        <li className={cx('item')} key={i}>
+                        <li className={cx('item', `${i === active ? 'active' : ''}`)} key={i}>
                             <Link to={e.path}>{e.display}</Link>
                         </li>
                     ))}
