@@ -8,11 +8,13 @@
     left: 0;
     z-index: 999;
     transition: height 0.3 ease, background-color 0.3 ease;
-
     &.shink {
         height: $header-shrink-height;
         background-color: $body-bg;
     }
+}
+.header-bg {
+    background-color: $body-bg;
 }
 
 .wrap {

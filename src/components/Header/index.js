@@ -1,5 +1,5 @@
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
@@ -14,12 +14,24 @@ const headerNav = [
 
 function Header() {
     const { pathname } = useLocation();
-    console.log(pathname);
     const headerRef = useRef();
     const active = headerNav.findIndex((e) => e.path === pathname);
-    console.log(active);
+
+    const [showBgHeader, setShowBgHeader] = useState(false);
+
+    useEffect(() => {
+        const handleSrollY = () => {
+            if (window.scrollY > 80) {
+                setShowBgHeader(true);
+                return;
+            }
+
+            setShowBgHeader(false);
+        };
+        window.addEventListener('scroll', handleSrollY);
+    });
     return (
-        <div ref={headerRef} className={cx('header')}>
+        <div ref={headerRef} className={cx('header', `${showBgHeader ? 'header-bg' : ''}`)}>
             <div className={cx('wrap', 'container')}>
                 <div className={cx('logo')}>
                     <img src={logo} alt="" />

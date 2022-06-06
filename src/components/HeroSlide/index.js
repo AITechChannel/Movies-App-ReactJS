@@ -1,45 +1,82 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore from 'swiper';
-
-import React, { useEffect, useState } from 'react';
-
-import tmdbApi, { category, movieType } from '~/api/tmdbApi';
-
 import classNames from 'classnames/bind';
-import Styles from './HeroSlide.module.scss';
-
+import React, { useCallback, useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import tmdbApi, { movieType, category } from '~/api/tmdbApi';
 import SlideItem from './Components/SlideItem';
+import Styles from './HeroSlide.module.scss';
+import 'swiper/css';
 
-import 'swiper/swiper.min.css';
-import 'swiper/swiper-bundle.min.css';
-import apiConfig from '~/api/apiConfig';
-import { useNavigate } from 'react-router-dom';
+import Modal from '../GlobalComponents/Modal';
 
 const cx = classNames.bind(Styles);
 
 function HeroSlide() {
     const [movies, setMovies] = useState([]);
 
+    const [movieCurrent, setMovieCurrent] = useState('');
+
+    const [showTrailer, setShowTrailer] = useState(false);
+
+    const handleWatch = useCallback((movie, i) => {
+        setMovieCurrent(movie);
+        setShowTrailer(true);
+        console.log(movie);
+    });
+
     useEffect(() => {
         const getMovies = async () => {
             const params = { page: 1 };
             try {
                 const res = await tmdbApi.getMoviesList(movieType.popular, { params });
-                setMovies(res.results);
+                setMovies(res.results.slice(0, 4));
             } catch (error) {}
         };
         getMovies();
     }, []);
-    console.log(movies);
+
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        const getVideos = async () => {
+            try {
+                const res = await tmdbApi.getVideos(category.movie, movieCurrent.id);
+                console.log(res);
+                setVideos(res.results);
+            } catch (error) {}
+        };
+        getVideos();
+    }, [movieCurrent]);
+
+    console.log('render slide item');
+
+    if (videos.length > 0) {
+        var src = 'http://youtube.com/embed/' + videos[0].key;
+    }
+
     return (
-        <div>
-            <Swiper spacebetween={0} slideperview={1}>
+        <div className={cx('hero-slide-container')}>
+            <Swiper spaceBetween={0} slidesPerView={1}>
                 {movies.map((movie, i) => (
-                    <SwiperSlide>
-                        {({ isActive }) => <SlideItem movie={movie} className={isActive ? 'active' : 'not active'} />}
+                    <SwiperSlide key={i}>
+                        {({ isActive }) => (
+                            <>
+                                <SlideItem
+                                    movie={movie}
+                                    className={isActive ? 'active' : ''}
+                                    onWatch={() => handleWatch(movie, i)}
+                                    showTrailer={showTrailer}
+                                    movieCurrent={movieCurrent}
+                                />
+                            </>
+                        )}
                     </SwiperSlide>
                 ))}
             </Swiper>
+            {showTrailer && (
+                <Modal onClose={() => setShowTrailer(false)}>
+                    <iframe src={src} type="video/web"></iframe>
+                </Modal>
+            )}
         </div>
     );
 }

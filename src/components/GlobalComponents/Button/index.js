@@ -4,9 +4,9 @@ import classNames from 'classnames/bind';
 import Styles from './Button.module.scss';
 const cx = classNames.bind(Styles);
 
-function Button({ children, primary, outline, small, to, href }) {
+function Button({ children, primary, outline, small, to, href, onClick, className }) {
     let Cmp = 'button';
-    const props = {};
+    const props = { onClick };
 
     if (to) {
         props.to = to;
@@ -17,10 +17,10 @@ function Button({ children, primary, outline, small, to, href }) {
         Cmp = 'a';
     }
 
-    const className = cx('btn', { primary, outline, small });
+    const classNames = cx('btn', { primary, outline, small });
 
     return (
-        <Cmp className={className} {...props}>
+        <Cmp className={classNames + ' ' + `${className}`} {...props}>
             {children}
         </Cmp>
     );

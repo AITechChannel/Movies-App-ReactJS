@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import 'swiper/swiper.min.css';
 import Catalog from '~/pages/Catalog';
 import Detail from '~/pages/Detail';
 import Home from '~/pages/Home';

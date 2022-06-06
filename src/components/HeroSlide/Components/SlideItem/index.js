@@ -1,18 +1,16 @@
 import classNames from 'classnames/bind';
-import { useState, useEffect } from 'react';
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
+import { useEffect, useState, memo } from 'react';
 import apiConfig from '~/api/apiConfig';
-import Styles from './SlideItem.module.scss';
-import tmdbApi, { category, movieType } from '~/api/tmdbApi';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
+import tmdbApi, { category } from '~/api/tmdbApi';
 import Button from '~/components/GlobalComponents/Button';
+import Modal from '~/components/GlobalComponents/Modal';
+import Styles from './SlideItem.module.scss';
+
 const cx = classNames.bind(Styles);
 
-function SlideItem({ movie, className }) {
+function SlideItem({ movieCurrent, movie, className, onWatch, movieIndex, showTrailer, onClose }) {
     return (
-        <div className={cx('container')}>
+        <div className={cx('slide-item-container', `${className}`)}>
             <div
                 style={{
                     backgroundImage: `url(${apiConfig.originalImage(movie.backdrop_path)})`,
@@ -24,7 +22,9 @@ function SlideItem({ movie, className }) {
                     <p>{movie.overview}</p>
                     <div className={cx('action')}>
                         <Button primary> Watch now </Button>
-                        <Button outline> Watch trailer</Button>
+                        <Button outline onClick={onWatch}>
+                            Watch trailer
+                        </Button>
                     </div>
                 </div>
                 <div className={cx('image')}>
@@ -33,7 +33,6 @@ function SlideItem({ movie, className }) {
             </div>
         </div>
     );
-    // return <div className={cx('container')} style={{ backgroundImage: `url(${item.poster_path})` }}></div>;
 }
 
-export default SlideItem;
+export default memo(SlideItem);
