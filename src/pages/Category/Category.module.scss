@@ -1,11 +1,17 @@
 @import '../../scss/';
 
 .header-page {
-    height: 280px;
-    padding-top: 200px;
+    // height: 150px;
+    padding-top: 120px;
     background-image: url(../../assets/footer-bg.jpg);
     position: relative;
-    margin-bottom: 32px;
+    margin-bottom: 64px;
+    display: flex;
+    justify-content: center;
+    .title {
+        position: relative;
+        z-index: 2;
+    }
     &::after {
         content: '';
         z-index: 1;

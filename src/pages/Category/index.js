@@ -11,12 +11,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 const cx = classNames.bind(styles);
 function Category() {
-    const [location, setLocation] = useState('');
     const pathname = useLocation();
-    console.log(pathname.pathname);
     return (
         <div className={cx('category-wrapper')}>
-            <div className={cx('header-page')}></div>
+            <div className={cx('header-page')}>
+                {pathname.pathname === `/${category.movie}` && <h1 className={cx('title')}>Movies</h1>}
+                {pathname.pathname === `/${category.tv}` && <h1 className={cx('title')}>TV series</h1>}
+            </div>
             <div className={cx('search-container')}>
                 <div className={cx('search')}>
                     <input className={cx('input-search')} type="text" placeholder="Enter key word" />

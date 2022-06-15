@@ -9,9 +9,11 @@ const cx = classNames.bind(styles);
 function Footer() {
     return (
         <div className={cx('footer-container')}>
-            <div className={cx('logo')}>
-                <img src={logo} alt="" />
-                <Link to="/">Movies</Link>
+            <div className={cx('logo-home')}>
+                <div className={cx('logo')}>
+                    <img src={logo} alt="" />
+                </div>
+                <Link to="/">Movies(Tuananh Doan)</Link>
             </div>
             <div className={cx('menu')}>
                 <ul className={cx('menu-list')}>
