@@ -1,14 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Catalog from '~/pages/Catalog';
-import Detail from '~/pages/Detail';
-import Home from '~/pages/Home';
+import Movies from './pages/Category';
+import Category from './pages/Category';
+import Detail from './pages/Detail';
+import Home from './pages/Home';
 import './App.scss';
 import MainLayout from './components/layouts/MainLayout';
 
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/:category', component: Catalog },
-    { path: '/:category/search/:keyword', component: Catalog },
+    { path: '/:category', component: Category },
+    { path: '/:category/search/:keyword', component: Category },
     { path: '/:category/:id', component: Detail },
 ];
 

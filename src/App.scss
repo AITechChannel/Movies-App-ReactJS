@@ -40,7 +40,10 @@ a {
     }
 }
 
-input,
+input {
+    outline: none;
+}
+
 button {
     outline: none;
     &:hover {

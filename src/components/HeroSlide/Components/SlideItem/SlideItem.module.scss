@@ -1,7 +1,7 @@
 @use '../../../../scss/' as *;
 
 .slide-item-container {
-    // height: 800px;
+    height: 100%;
     .inner {
         box-sizing: border-box;
         padding: 120px 0;
@@ -9,10 +9,10 @@
         align-items: center;
         background-size: cover;
         background-repeat: no-repeat;
-        // background-position: 50%;
+        background-position: center;
         width: 100%;
+        height: 100%;
         position: relative;
-        // overflow: hidden;
         &::after {
             content: '';
             position: absolute;
@@ -26,14 +26,11 @@
 
     .image {
         z-index: 1;
-        width: 400px;
+        margin-right: 15%;
         img {
-            height: 100%;
-            width: 100%;
+            width: 400px;
             border-radius: 40px;
         }
-        margin-right: 350px;
-
         @include mobile {
             display: none;
         }
@@ -43,8 +40,11 @@
         z-index: 1;
         flex: 1;
         padding: 0 48px;
+        min-width: 520px;
+
         h2 {
-            font-size: 8rem;
+            font-size: 6rem;
+            line-height: 6rem;
         }
         p {
             margin-top: 48px;

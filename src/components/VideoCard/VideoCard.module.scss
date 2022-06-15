@@ -1,26 +1,20 @@
 @import '../../scss/';
 
-.movie-list-container {
-    padding: 0 32px;
-    margin-bottom: 32px;
-
-    .header-list {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 32px;
-    }
-    .swiper-slide {
-        width: 15%;
-    }
+.card-container {
+    width: 100%;
+    padding: 0 8px;
+    // height: 400px;
     .img-tag {
+        // height: 100%;
         position: relative;
-        img {
-            width: 100%;
-            border-radius: 30px;
-        }
-        .btn-icon {
-            // opacity: 0;
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 160%;
+        border-radius: 30px;
+        margin-bottom: 10px;
 
+        .btn-icon {
             position: absolute;
             z-index: 1;
             left: 50%;

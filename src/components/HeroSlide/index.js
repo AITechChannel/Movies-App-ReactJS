@@ -16,6 +16,7 @@ function HeroSlide() {
     const [movieCurrent, setMovieCurrent] = useState('');
 
     const [showTrailer, setShowTrailer] = useState(false);
+    const [videos, setVideos] = useState([]);
 
     const handleWatch = useCallback((movie, i) => {
         setMovieCurrent(movie);
@@ -34,8 +35,6 @@ function HeroSlide() {
         getMovies();
     }, []);
 
-    const [videos, setVideos] = useState([]);
-
     useEffect(() => {
         const getVideos = async () => {
             try {
@@ -47,8 +46,6 @@ function HeroSlide() {
         getVideos();
     }, [movieCurrent]);
 
-    console.log('render slide item');
-
     if (videos.length > 0) {
         var src = 'http://youtube.com/embed/' + videos[0].key;
     }
@@ -57,7 +54,7 @@ function HeroSlide() {
         <div className={cx('hero-slide-container')}>
             <Swiper spaceBetween={0} slidesPerView={1}>
                 {movies.map((movie, i) => (
-                    <SwiperSlide key={i}>
+                    <SwiperSlide style={{ height: '800px' }} key={i}>
                         {({ isActive }) => (
                             <>
                                 <SlideItem
