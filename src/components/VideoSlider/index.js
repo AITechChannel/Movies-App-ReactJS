@@ -10,24 +10,46 @@ import Button from '../GlobalComponents/Button';
 import VideoCard from '../VideoCard';
 import styles from './VideoSlider.module.scss';
 const cx = classNames.bind(styles);
-function VideoSlider({ title, category, type }) {
+function VideoSlider({ methodName, category, type, id, title }) {
     const [items, setItems] = useState([]);
-
+    console.log(methodName);
     useEffect(() => {
-        if (category == 'movie') {
+        if (methodName === 'getMoviesList') {
             const params = { page: 1 };
             const getVideoCardList = async () => {
                 try {
                     const res = await tmdbApi.getMoviesList(type, { params });
-
+                    setItems(res.results);
+                    console.log('aa:', res);
+                } catch (error) {
+                    console.log('Error fecth api video card list dsf');
+                }
+            };
+            getVideoCardList();
+        } else if (methodName === 'getTvList') {
+            const params = { page: 1 };
+            const getVideoCardList = async () => {
+                try {
+                    const res = await tmdbApi.getTvList(type, { params });
                     setItems(res.results);
                 } catch (error) {
-                    console.log('Error fecth api video card list');
+                    console.log('Error fecth api video card list dsf');
+                }
+            };
+            getVideoCardList();
+        } else if (methodName === 'getSimilar') {
+            const getVideoCardList = async () => {
+                try {
+                    const res = await tmdbApi.getSimilar(category, id);
+                    setItems(res.results);
+                    console.log('similar:', res.results);
+                } catch (error) {
+                    console.log('Error fecth api similar');
                 }
             };
             getVideoCardList();
         }
-    }, []);
+    }, [id]);
     return (
         <div className={cx('movie-list-container')}>
             <div className={cx('header-list')}>

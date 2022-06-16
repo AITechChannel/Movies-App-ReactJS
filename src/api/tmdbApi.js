@@ -12,7 +12,7 @@ const movieType = {
 };
 
 const tvType = {
-    upcoming: 'upcoming',
+    popular: 'popular',
     top_rated: 'top_rated',
     on_the_air: 'on_the_air',
 };
@@ -25,7 +25,7 @@ const tmdbApi = {
         return axiosClient.get(url, params);
     },
     getTvList: (type, params) => {
-        const url = 'movie' + tvType[type];
+        const url = 'tv/' + tvType[type];
         return axiosClient.get(url, params);
     },
     getVideos: (cate, id) => {

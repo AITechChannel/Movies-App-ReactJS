@@ -46,10 +46,6 @@ function HeroSlide() {
         getVideos();
     }, [movieCurrent]);
 
-    if (videos.length > 0) {
-        var src = 'http://youtube.com/embed/' + videos[0].key;
-    }
-
     return (
         <div className={cx('hero-slide-container')}>
             <Swiper spaceBetween={0} slidesPerView={1}>
@@ -71,7 +67,9 @@ function HeroSlide() {
             </Swiper>
             {showTrailer && (
                 <Modal onClose={() => setShowTrailer(false)}>
-                    <iframe src={src} type="video/web"></iframe>
+                    {videos.length > 0 && (
+                        <iframe src={'http://youtube.com/embed/' + videos[0].key} type="video/web"></iframe>
+                    )}
                 </Modal>
             )}
         </div>

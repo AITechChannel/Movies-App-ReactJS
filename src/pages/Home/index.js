@@ -8,8 +8,20 @@ function Home() {
     return (
         <div>
             <HeroSlide />
-            <VideoSlider title="Trending Movies" category={category.movie} type={movieType.popular} />
-            <VideoSlider title="Top rated Movies" category={category.movie} type={movieType.top_rated} />
+            <VideoSlider
+                methodName="getMoviesList"
+                title="Trending Movies"
+                category={category.movie}
+                type={movieType.popular}
+            />
+            <VideoSlider
+                methodName="getMoviesList"
+                title="Top rated Movies"
+                category={category.movie}
+                type={movieType.top_rated}
+            />
+            <VideoSlider methodName="getTvList" title="Trending TV" category={category.tv} type={tvType.popular} />
+            <VideoSlider methodName="getTvList" title="Top rated TV" category={category.tv} type={tvType.top_rated} />
         </div>
     );
 }

@@ -1,10 +1,34 @@
 .video-detail-container {
-    background-size: cover;
     // height: 800px;
     width: 100%;
-
+    .banner {
+        background-size: cover;
+        padding-top: 28%;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 400px;
+            background-image: linear-gradient(0deg, #0f0f0f, transparent);
+        }
+    }
     .inner {
+        position: relative;
+        z-index: 1;
         margin: 0 auto;
+        margin-top: -380px;
         display: flex;
         padding: 120px 0;
         max-width: 70%;
@@ -18,6 +42,7 @@
     }
     .title {
         margin-bottom: 20px;
+        font-size: 4rem;
     }
     .genres {
         margin-bottom: 16px;
@@ -27,8 +52,16 @@
         flex: 1;
         min-width: 400px;
         margin-left: 40px;
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
     }
     .overview {
         margin-bottom: 20px;
+    }
+
+    .iframe-list-container {
+        width: 100%;
     }
 }

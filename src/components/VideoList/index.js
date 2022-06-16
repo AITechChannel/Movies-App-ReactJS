@@ -13,11 +13,25 @@ const cx = classNames.bind(styles);
 function VideoList({ category, type }) {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        if (category === 'movie' || category === 'tv') {
+        if (category === 'movie') {
             const params = { page: 1 };
             const getVideoCardList = async () => {
                 try {
                     const res = await tmdbApi.getMoviesList(type, { params });
+
+                    console.log(res.results);
+
+                    setItems(res.results);
+                } catch (error) {
+                    console.log('Error fecth api video card list');
+                }
+            };
+            getVideoCardList();
+        } else if (category === 'tv') {
+            const params = { page: 1 };
+            const getVideoCardList = async () => {
+                try {
+                    const res = await tmdbApi.getTvList(type, { params });
 
                     console.log(res.results);
 

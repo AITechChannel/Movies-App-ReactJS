@@ -29,7 +29,7 @@ function Category() {
             {pathname.pathname === `/${category.movie}` && (
                 <Videolist category={category.movie} type={movieType.popular} />
             )}
-            {pathname.pathname === `/${category.tv}` && <Videolist category={category.tv} type={tvType.upcoming} />}
+            {pathname.pathname === `/${category.tv}` && <Videolist category={category.tv} type={tvType.popular} />}
             <div className={cx('load-more')}>
                 <Button outline small>
                     Load more
