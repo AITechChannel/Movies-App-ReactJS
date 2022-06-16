@@ -10,7 +10,7 @@ import Button from '../GlobalComponents/Button';
 import VideoCard from '../VideoCard';
 import styles from './VideoSlider.module.scss';
 const cx = classNames.bind(styles);
-function VideoSlider({ methodName, category, type, id, title }) {
+function VideoSlider({ methodName, category, type, id, title, more }) {
     const [items, setItems] = useState([]);
     console.log(methodName);
     useEffect(() => {
@@ -53,10 +53,12 @@ function VideoSlider({ methodName, category, type, id, title }) {
     return (
         <div className={cx('movie-list-container')}>
             <div className={cx('header-list')}>
-                <h1>{title}</h1>
-                <Button outline small>
-                    View more
-                </Button>
+                {title && <h1>{title}</h1>}
+                {more && (
+                    <Button outline small to={`/${category}`}>
+                        View more
+                    </Button>
+                )}
             </div>
             <div className={cx('slider-container')}>
                 <Swiper grabCursor={true} spaceBetween={10} slidesPerView={'auto'}>

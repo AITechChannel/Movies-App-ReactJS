@@ -32,7 +32,7 @@ const tmdbApi = {
         const url = category[cate] + '/' + id + '/videos';
         return axiosClient.get(url, { params: {} });
     },
-    search: (cate, params) => {
+    search: (cate, params, keyword) => {
         const url = 'search/' + category[cate];
         return axiosClient.get(url, params);
     },
