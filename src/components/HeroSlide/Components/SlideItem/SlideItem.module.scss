@@ -1,13 +1,17 @@
 @use '../../../../scss/' as *;
 
 .slide-item-container {
+    background-position: top;
     height: 100%;
+    @include tablet {
+        max-height: 600px;
+    }
     @include mobile {
-        height: 500px;
+        max-height: 500px;
     }
     .inner {
         box-sizing: border-box;
-        padding: 120px 0;
+        padding: 120px 5%;
         display: flex;
         align-items: center;
         background-size: cover;
@@ -17,9 +21,6 @@
         height: 100%;
         position: relative;
 
-        @include mobile {
-            padding: 50px 0;
-        }
         &::after {
             content: '';
             position: absolute;
@@ -33,12 +34,12 @@
 
     .image {
         z-index: 1;
-        margin-right: 15%;
+        margin-right: 10%;
         img {
-            width: 400px;
+            width: 30%;
             border-radius: 40px;
         }
-        @include mobile {
+        @include tablet {
             display: none;
         }
     }
@@ -46,12 +47,10 @@
     .content {
         z-index: 1;
         flex: 1;
-        padding: 0 48px;
-        min-width: 520px;
-
-        @include mobile {
-            width: 100%;
-            min-width: unset;
+        margin-right: 48px;
+        min-width: 60%;
+        @include tablet {
+            margin-right: 0;
         }
 
         h2 {
@@ -59,12 +58,12 @@
             line-height: 6rem;
         }
         p {
-            margin-top: 48px;
+            margin-top: 38px;
             font-size: 1.6rem;
         }
     }
 
     .action {
-        margin-top: 40px;
+        margin-top: 38px;
     }
 }

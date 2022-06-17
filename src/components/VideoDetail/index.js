@@ -44,9 +44,9 @@ function VideoDetail({ category, id }) {
                         <h1 className={cx('title')}>{items.title}</h1>
                         <div className={cx('genres')}>
                             {items.genres.map((e, i) => (
-                                <Button key={`genres-${i}`} outline small>
+                                <span className={cx('label')} key={`genres-${i}`}>
                                     {e.name}
-                                </Button>
+                                </span>
                             ))}
                         </div>
                         <p className={cx('overview')}>{items.overview}</p>

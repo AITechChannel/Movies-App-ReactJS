@@ -1,6 +1,7 @@
 @import '../../scss/';
 
 .hero-slide-container {
+    height: 100%;
     position: relative;
     margin-bottom: 30px;
 
@@ -13,5 +14,9 @@
         left: 0;
         right: 0;
         background-image: linear-gradient(0deg, #0f0f0f, transparent);
+    }
+
+    .wiper-slide {
+        height: 100%;
     }
 }

@@ -1,3 +1,4 @@
+@import '../../scss/';
 .video-detail-container {
     // height: 800px;
     width: 100%;
@@ -28,16 +29,19 @@
         position: relative;
         z-index: 1;
         margin: 0 auto;
-        margin-top: -380px;
+        margin-top: -24%;
         display: flex;
         padding: 120px 0;
-        max-width: 70%;
+        width: 80%;
     }
     .image {
-        width: 350px;
+        width: 30%;
         img {
             width: 100%;
             border-radius: 30px;
+        }
+        @include tablet {
+            display: none;
         }
     }
     .title {
@@ -45,16 +49,24 @@
         font-size: 4rem;
     }
     .genres {
-        margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        span {
+            margin-bottom: 20px;
+        }
     }
 
     .content {
         flex: 1;
-        min-width: 400px;
         margin-left: 40px;
         h3 {
             font-size: 2rem;
             margin-bottom: 8px;
+        }
+
+        @include tablet {
+            margin-left: 0;
+            width: 100%;
         }
     }
     .overview {
@@ -63,5 +75,16 @@
 
     .iframe-list-container {
         width: 100%;
+    }
+
+    .label {
+        border: 2px solid white;
+        border-radius: 99px;
+        padding: 8px 20px;
+        font-size: 1.2rem;
+        background-color: $body-bg;
+    }
+    .label + .label {
+        margin-left: 16px;
     }
 }
