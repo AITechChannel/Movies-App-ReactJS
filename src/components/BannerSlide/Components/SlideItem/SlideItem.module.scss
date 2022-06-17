@@ -3,12 +3,7 @@
 .slide-item-container {
     background-position: top;
     height: 100%;
-    @include tablet {
-        max-height: 600px;
-    }
-    @include mobile {
-        max-height: 500px;
-    }
+
     .inner {
         box-sizing: border-box;
         padding: 120px 5%;

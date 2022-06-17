@@ -1,15 +1,12 @@
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import apiConfig from '~/api/apiConfig';
-import tmdbApi, { category } from '~/api/tmdbApi';
-import Button from '../GlobalComponents/Button';
+import tmdbApi from '~/api/tmdbApi';
 import styles from './CastList.module.scss';
 const cx = classNames.bind(styles);
-function CastList({ cate, id }) {
+
+function CastList({ id }) {
     const [items, setItems] = useState(null);
 
     useEffect(() => {
@@ -24,11 +21,12 @@ function CastList({ cate, id }) {
         };
         getData();
     }, [id]);
+
     return (
         items && (
             <div className={cx('cast-list-container')}>
                 {items.cast.slice(0, 5).map((e, i) => (
-                    <div className={cx('cast-item')}>
+                    <div key={`cast- ${i}`} className={cx('cast-item')}>
                         {e.profile_path && <img key={`cast_${i}`} src={apiConfig.w500Image(e.profile_path)} />}
                         {e.profile_path && <p>{e.name}</p>}
                     </div>

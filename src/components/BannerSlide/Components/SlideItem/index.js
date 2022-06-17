@@ -1,14 +1,12 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState, memo } from 'react';
+import { memo } from 'react';
 import apiConfig from '~/api/apiConfig';
-import tmdbApi, { category } from '~/api/tmdbApi';
 import Button from '~/components/GlobalComponents/Button';
-import Modal from '~/components/GlobalComponents/Modal';
 import Styles from './SlideItem.module.scss';
 
 const cx = classNames.bind(Styles);
 
-function SlideItem({ movieCurrent, movie, className, onWatch, movieIndex, showTrailer, onClose }) {
+function SlideItem({ movie, className, onWatch }) {
     return (
         <div className={cx('slide-item-container', `${className}`)}>
             <div

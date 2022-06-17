@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { movieType, tvType } from '~/api/tmdbApi';
 import Button from '~/components/GlobalComponents/Button';
-import '~/components/HeroSlide';
+import '~/components/BannerSlide';
 import Videolist from '~/components/VideoList';
 import styles from './Category.module.scss';
 const cx = classNames.bind(styles);

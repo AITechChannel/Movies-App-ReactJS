@@ -1,7 +1,13 @@
 @import '../../scss/';
 
 .hero-slide-container {
-    height: 100%;
+    height: 900px;
+    @include tablet {
+        max-height: 600px;
+    }
+    @include mobile {
+        max-height: 500px;
+    }
     position: relative;
     margin-bottom: 30px;
 
@@ -16,7 +22,13 @@
         background-image: linear-gradient(0deg, #0f0f0f, transparent);
     }
 
-    .wiper-slide {
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
         height: 100%;
     }
 }

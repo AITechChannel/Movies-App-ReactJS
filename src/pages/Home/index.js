@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import VideoSlider from '~/components/VideoSlider';
-import '~/components/HeroSlide';
-import HeroSlide from '~/components/HeroSlide';
+import '~/components/BannerSlide';
+import BannerSlide from '~/components/BannerSlide';
 import { category, movieType, tvType } from '~/api/tmdbApi';
 import { useLocation } from 'react-router-dom';
 
@@ -11,9 +11,10 @@ function Home() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
+
     return (
-        <div>
-            <HeroSlide />
+        <>
+            <BannerSlide />
             <VideoSlider
                 methodName="getMoviesList"
                 more
@@ -36,7 +37,7 @@ function Home() {
                 category={category.tv}
                 type={tvType.top_rated}
             />
-        </div>
+        </>
     );
 }
 

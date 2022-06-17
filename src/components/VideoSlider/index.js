@@ -1,18 +1,16 @@
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import apiConfig from '~/api/apiConfig';
 import tmdbApi from '~/api/tmdbApi';
 import Button from '../GlobalComponents/Button';
 import VideoCard from '../VideoCard';
 import styles from './VideoSlider.module.scss';
 const cx = classNames.bind(styles);
+
 function VideoSlider({ methodName, category, type, id, title, more }) {
     const [items, setItems] = useState([]);
-    console.log(methodName);
+
     useEffect(() => {
         if (methodName === 'getMoviesList') {
             const params = { page: 1 };
@@ -41,7 +39,6 @@ function VideoSlider({ methodName, category, type, id, title, more }) {
                 try {
                     const res = await tmdbApi.getSimilar(category, id);
                     setItems(res.results);
-                    console.log('similar:', res.results);
                 } catch (error) {
                     console.log('Error fecth api similar');
                 }
@@ -49,6 +46,7 @@ function VideoSlider({ methodName, category, type, id, title, more }) {
             getVideoCardList();
         }
     }, [id]);
+
     return (
         <div className={cx('movie-list-container')}>
             <div className={cx('header-list')}>

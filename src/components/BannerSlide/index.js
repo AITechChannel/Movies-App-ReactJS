@@ -3,14 +3,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import tmdbApi, { movieType, category } from '~/api/tmdbApi';
 import SlideItem from './Components/SlideItem';
-import Styles from './HeroSlide.module.scss';
+import Styles from './BannerSlide.module.scss';
 import 'swiper/css';
+import { Autoplay, Pagination, Navigation } from 'swiper';
 
 import Modal from '../GlobalComponents/Modal';
 
 const cx = classNames.bind(Styles);
 
-function HeroSlide() {
+function BannerSlide() {
     const [movies, setMovies] = useState([]);
 
     const [movieCurrent, setMovieCurrent] = useState('');
@@ -48,7 +49,17 @@ function HeroSlide() {
 
     return (
         <div className={cx('hero-slide-container')}>
-            <Swiper spaceBetween={0} slidesPerView={1}>
+            <Swiper
+                grabCursor={true}
+                modules={[Autoplay]}
+                spaceBetween={0}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{
+                    delay: 2500,
+                }}
+                style={{ height: '100%' }}
+            >
                 {movies.map((movie, i) => (
                     <SwiperSlide key={i} style={{ height: '100%' }}>
                         {({ isActive }) => (
@@ -76,4 +87,4 @@ function HeroSlide() {
     );
 }
 
-export default HeroSlide;
+export default BannerSlide;

@@ -1,14 +1,15 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import tmdbApi from '~/api/tmdbApi';
 import Button from '../GlobalComponents/Button';
 import VideoCard from '../VideoCard';
 import styles from './VideoList.module.scss';
 const cx = classNames.bind(styles);
+
 function VideoList({ category, type, search, keyword }) {
     const [items, setItems] = useState([]);
+
     const [page, setPage] = useState(1);
 
     const [totalPages, setTotalPages] = useState(1);
@@ -28,8 +29,6 @@ function VideoList({ category, type, search, keyword }) {
             };
             getVideoCardList();
         } else if (category === 'tv' && !keyword) {
-            // console.log('tv');
-
             const params = { page: page };
             const getVideoCardList = async () => {
                 try {
@@ -58,7 +57,6 @@ function VideoList({ category, type, search, keyword }) {
         }
     }, [page, search]);
 
-    console.log(totalPages);
     const handOnClickLoadMore = () => {
         if (page < totalPages) {
             setPage(page + 1);
