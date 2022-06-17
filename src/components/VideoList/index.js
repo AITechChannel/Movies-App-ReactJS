@@ -1,21 +1,25 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import tmdbApi from '~/api/tmdbApi';
 import Button from '../GlobalComponents/Button';
 import VideoCard from '../VideoCard';
 import styles from './VideoList.module.scss';
 const cx = classNames.bind(styles);
-function VideoList({ category, type, keyword, searchValue }) {
+function VideoList({ category, type, search, keyword }) {
     const [items, setItems] = useState([]);
     const [page, setPage] = useState(1);
+
+    const [totalPages, setTotalPages] = useState(1);
+
     useEffect(() => {
-        if (category === 'movie' && searchValue !== '' && searchValue === undefined) {
-            console.log('movie');
+        if (category === 'movie' && !keyword) {
             const params = { page: page };
             const getVideoCardList = async () => {
                 try {
                     const res = await tmdbApi.getMoviesList(type, { params });
+                    setTotalPages(res.total_pages);
                     setItems(res.results);
                     setItems((prev) => items.concat(prev));
                 } catch (error) {
@@ -23,13 +27,14 @@ function VideoList({ category, type, keyword, searchValue }) {
                 }
             };
             getVideoCardList();
-        } else if (category === 'tv' && !searchValue) {
-            console.log('tv');
+        } else if (category === 'tv' && !keyword) {
+            // console.log('tv');
 
             const params = { page: page };
             const getVideoCardList = async () => {
                 try {
                     const res = await tmdbApi.getTvList(type, { params });
+                    setTotalPages(res.total_pages);
                     setItems(res.results);
                     setItems((prev) => items.concat(prev));
                 } catch (error) {
@@ -37,29 +42,31 @@ function VideoList({ category, type, keyword, searchValue }) {
                 }
             };
             getVideoCardList();
-        } else if (searchValue !== '') {
-            console.log('search value', searchValue);
-
-            const params = { query: searchValue };
+        } else {
+            const params = { query: search };
             const getVideoCardList = async () => {
                 try {
-                    const res = await tmdbApi.search('movie', { params });
-                    console.log(res.results);
+                    const res = await tmdbApi.search(category, { params });
+                    setTotalPages(res.total_pages);
                     setItems(res.results);
-                    // setItems((prev) => items.concat(prev));
+                    setItems((prev) => items.concat(prev));
                 } catch (error) {
                     console.log('Error fecth api video card list');
                 }
             };
             getVideoCardList();
         }
-    }, [page, searchValue]);
+    }, [page, search]);
 
+    console.log(totalPages);
     const handOnClickLoadMore = () => {
-        setPage(page + 1);
+        if (page < totalPages) {
+            setPage(page + 1);
+        }
     };
+
     return (
-        <>
+        <div>
             <div className={cx('list-container')}>
                 <div className={cx('list-item')}>
                     {items.map((item, i) => (
@@ -74,11 +81,11 @@ function VideoList({ category, type, keyword, searchValue }) {
                 </div>
             </div>
             <div className={cx('load-more')}>
-                <Button outline small onClick={handOnClickLoadMore}>
+                <Button disable={page === totalPages} outline small onClick={handOnClickLoadMore}>
                     Load more
                 </Button>
             </div>
-        </>
+        </div>
     );
 }
 

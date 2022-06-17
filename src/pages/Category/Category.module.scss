@@ -26,11 +26,17 @@
 .search-container {
     margin-bottom: 32px;
     padding: 0 64px;
+    @include tablet {
+        padding: 0 32px;
+    }
 }
 .search {
     position: relative;
     width: 500px;
     height: 36px;
+    @include tablet {
+        width: 100%;
+    }
 }
 .input-search {
     width: 100%;

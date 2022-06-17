@@ -33,8 +33,10 @@ function Header() {
     return (
         <div ref={headerRef} className={cx('header', `${showBgHeader ? 'header-bg' : ''}`)}>
             <div className={cx('wrap', 'container')}>
-                <div className={cx('logo')}>
-                    <img src={logo} alt="" />
+                <div className={cx('logo-home')}>
+                    <div className={cx('logo')}>
+                        <img src={logo} alt="" />
+                    </div>
                     <Link to="/">Movies</Link>
                 </div>
                 <ul className={cx('nav')}>

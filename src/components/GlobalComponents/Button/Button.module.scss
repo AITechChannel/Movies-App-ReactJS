@@ -42,3 +42,8 @@
     font-weight: 500;
     border: 2px solid $main-color;
 }
+
+.disable {
+    pointer-events: none;
+    opacity: 0.5;
+}

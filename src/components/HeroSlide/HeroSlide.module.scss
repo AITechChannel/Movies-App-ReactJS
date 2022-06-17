@@ -3,6 +3,7 @@
 .hero-slide-container {
     position: relative;
     margin-bottom: 30px;
+
     &::after {
         z-index: 1;
         content: '';

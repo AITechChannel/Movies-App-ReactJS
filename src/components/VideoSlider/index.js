@@ -20,7 +20,6 @@ function VideoSlider({ methodName, category, type, id, title, more }) {
                 try {
                     const res = await tmdbApi.getMoviesList(type, { params });
                     setItems(res.results);
-                    console.log('aa:', res);
                 } catch (error) {
                     console.log('Error fecth api video card list dsf');
                 }

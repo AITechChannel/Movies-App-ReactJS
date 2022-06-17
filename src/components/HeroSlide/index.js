@@ -50,7 +50,7 @@ function HeroSlide() {
         <div className={cx('hero-slide-container')}>
             <Swiper spaceBetween={0} slidesPerView={1}>
                 {movies.map((movie, i) => (
-                    <SwiperSlide style={{ height: '800px' }} key={i}>
+                    <SwiperSlide key={i}>
                         {({ isActive }) => (
                             <>
                                 <SlideItem
