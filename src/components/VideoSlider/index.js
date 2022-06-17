@@ -52,7 +52,7 @@ function VideoSlider({ methodName, category, type, id, title, more }) {
             <div className={cx('header-list')}>
                 {title && <h1>{title}</h1>}
                 {more && (
-                    <Button outline small to={`/${category}`}>
+                    <Button outline small to={`/Movies-App-ReactJS-TuanAnhDoan/${category}`}>
                         View more
                     </Button>
                 )}

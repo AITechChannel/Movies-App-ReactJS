@@ -80,7 +80,7 @@ function BannerSlide() {
             {showTrailer && (
                 <Modal onClose={() => setShowTrailer(false)}>
                     {videos.length > 0 && (
-                        <iframe src={'http://youtube.com/embed/' + videos[0].key} type="video/web"></iframe>
+                        <iframe src={'https://youtube.com/embed/' + videos[0].key} type="video/web"></iframe>
                     )}
                 </Modal>
             )}

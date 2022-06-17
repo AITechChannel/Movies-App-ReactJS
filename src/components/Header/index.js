@@ -12,9 +12,9 @@ import { faTv } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 const headerNav = [
-    { display: 'Home', path: '/', icon: <AiOutlineHome /> },
-    { display: 'Movies', path: '/movie', icon: <GiFilmSpool /> },
-    { display: 'TV series', path: '/tv', icon: <MdMonitor /> },
+    { display: 'Home', path: '/Movies-App-ReactJS-TuanAnhDoan/', icon: <AiOutlineHome /> },
+    { display: 'Movies', path: '/Movies-App-ReactJS-TuanAnhDoan/movie', icon: <GiFilmSpool /> },
+    { display: 'TV series', path: '/Movies-App-ReactJS-TuanAnhDoan/tv', icon: <MdMonitor /> },
 ];
 
 function Header() {
@@ -42,7 +42,7 @@ function Header() {
                     <div className={cx('logo')}>
                         <img src={logo} alt="" />
                     </div>
-                    <Link to="/">Movies</Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/">Movies</Link>
                 </div>
                 <ul className={cx('nav')}>
                     {headerNav.map((e, i) => (

@@ -25,7 +25,7 @@ function Category() {
 
     const handleSearch = () => {
         if (searchValue !== '') {
-            naviagte(`/${category}/search/${searchValue}`);
+            naviagte(`/Movies-App-ReactJS-TuanAnhDoan/${category}/search/${searchValue}`);
             setSearch(searchValue);
         }
     };

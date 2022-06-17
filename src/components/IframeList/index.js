@@ -28,7 +28,7 @@ function IframeList({ id }) {
                     <div key={`iframe-${i}`} className={cx('iframe-item')}>
                         <h3>{e.name}</h3>
                         <div className={cx('iframe-container')}>
-                            <iframe src={'http://youtube.com/embed/' + e.key} type="video/web"></iframe>
+                            <iframe src={'https://youtube.com/embed/' + e.key} type="video/web"></iframe>
                         </div>
                     </div>
                 ))}

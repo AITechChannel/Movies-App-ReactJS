@@ -7,10 +7,10 @@ import './App.scss';
 import MainLayout from './components/layouts/MainLayout';
 
 const publicRoutes = [
-    { path: '/', component: Home },
-    { path: '/:category', component: Category },
-    { path: '/:category/search/:keyword', component: Category },
-    { path: '/:category/:id', component: Detail },
+    { path: '/Movies-App-ReactJS-TuanAnhDoan/', component: Home },
+    { path: '/Movies-App-ReactJS-TuanAnhDoan/:category', component: Category },
+    { path: '/Movies-App-ReactJS-TuanAnhDoan/:category/search/:keyword', component: Category },
+    { path: '/Movies-App-ReactJS-TuanAnhDoan/:category/:id', component: Detail },
 ];
 
 function App() {

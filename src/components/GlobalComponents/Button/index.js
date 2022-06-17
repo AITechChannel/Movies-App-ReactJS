@@ -4,7 +4,8 @@ import classNames from 'classnames/bind';
 import Styles from './Button.module.scss';
 const cx = classNames.bind(Styles);
 
-function Button({ children, primary, outline, small, to, href, onClick, disable, className }) {
+function Button({ children, primary, outline, small, to, href, onClick, disable, className, style }) {
+    console.log(style);
     let Cmp = 'button';
     const props = { onClick };
 
@@ -20,7 +21,7 @@ function Button({ children, primary, outline, small, to, href, onClick, disable,
     const classNames = cx('btn', { primary, outline, small, disable });
 
     return (
-        <Cmp className={classNames + ' ' + `${className}`} {...props}>
+        <Cmp style={style} className={classNames + ' ' + `${className}`} {...props}>
             {children}
         </Cmp>
     );

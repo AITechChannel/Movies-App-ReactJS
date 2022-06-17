@@ -10,10 +10,10 @@
 html {
     font-size: 62.5%;
     @include tablet {
-        font-size: 50%;
+        font-size: 55%;
     }
     @include mobile {
-        font-size: 37.5%;
+        font-size: 46%;
     }
 }
 
