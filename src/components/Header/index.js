@@ -1,15 +1,20 @@
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { AiOutlineHome } from 'react-icons/ai';
+import { GiFilmSpool } from 'react-icons/gi';
+import { MdMonitor } from 'react-icons/md';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import logo from '~/assets/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTv } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 const headerNav = [
-    { display: 'Home', path: '/' },
-    { display: 'Movies', path: '/movie' },
-    { display: 'TV series', path: '/tv' },
+    { display: 'Home', path: '/', icon: <AiOutlineHome /> },
+    { display: 'Movies', path: '/movie', icon: <GiFilmSpool /> },
+    { display: 'TV series', path: '/tv', icon: <MdMonitor /> },
 ];
 
 function Header() {
@@ -42,7 +47,10 @@ function Header() {
                 <ul className={cx('nav')}>
                     {headerNav.map((e, i) => (
                         <li className={cx('item', `${i === active ? 'active' : ''}`)} key={i}>
-                            <Link to={e.path}>{e.display}</Link>
+                            <Link to={e.path} className={cx('link')}>
+                                <span className={cx('icon')}>{e.icon}</span>
+                                <span>{e.display}</span>
+                            </Link>
                         </li>
                     ))}
                 </ul>

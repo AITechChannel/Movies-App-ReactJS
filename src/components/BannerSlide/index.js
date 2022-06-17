@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
-import React, { useCallback, useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import tmdbApi, { movieType, category } from '~/api/tmdbApi';
-import SlideItem from './Components/SlideItem';
-import Styles from './BannerSlide.module.scss';
+import { useCallback, useEffect, useState } from 'react';
+import { Autoplay } from 'swiper';
 import 'swiper/css';
-import { Autoplay, Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import tmdbApi, { category, movieType } from '~/api/tmdbApi';
+import Styles from './BannerSlide.module.scss';
+import SlideItem from './Components/SlideItem';
 
 import Modal from '../GlobalComponents/Modal';
 
@@ -17,6 +17,7 @@ function BannerSlide() {
     const [movieCurrent, setMovieCurrent] = useState('');
 
     const [showTrailer, setShowTrailer] = useState(false);
+
     const [videos, setVideos] = useState([]);
 
     const handleWatch = useCallback((movie, i) => {
@@ -48,16 +49,16 @@ function BannerSlide() {
     }, [movieCurrent]);
 
     return (
-        <div className={cx('hero-slide-container')}>
+        <div className={cx('banner-slide-container')}>
             <Swiper
                 grabCursor={true}
                 modules={[Autoplay]}
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                autoplay={{
-                    delay: 2500,
-                }}
+                // autoplay={{
+                //     delay: 2500,
+                // }}
                 style={{ height: '100%' }}
             >
                 {movies.map((movie, i) => (

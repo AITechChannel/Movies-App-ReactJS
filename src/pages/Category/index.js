@@ -7,6 +7,7 @@ import '~/components/BannerSlide';
 import Videolist from '~/components/VideoList';
 import styles from './Category.module.scss';
 const cx = classNames.bind(styles);
+
 function Category() {
     const location = useLocation();
 
@@ -19,7 +20,7 @@ function Category() {
     const { category, keyword } = useParams();
 
     const handleOnChangeInput = (e) => {
-        setSearchValue(e.target.value.trim());
+        setSearchValue(e.target.value);
     };
 
     const handleSearch = () => {
@@ -30,7 +31,7 @@ function Category() {
     };
 
     useEffect(() => {
-        if (searchValue === '') {
+        if (keyword) {
             setSearchValue(keyword);
             setSearch(keyword);
         }

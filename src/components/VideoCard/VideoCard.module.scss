@@ -2,6 +2,11 @@
 
 .card-container {
     width: 100%;
+    &:hover {
+        .title {
+            color: $main-color;
+        }
+    }
     .img-tag {
         position: relative;
         background-position: top;

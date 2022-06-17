@@ -3,7 +3,9 @@
 .movie-list-container {
     padding: 0 32px;
     margin-bottom: 32px;
-
+    @include mobile {
+        padding: 0 12px;
+    }
     .header-list {
         display: flex;
         justify-content: space-between;

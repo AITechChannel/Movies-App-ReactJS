@@ -1,56 +1,57 @@
 @import '../../scss/';
-
-.header-page {
-    // height: 150px;
-    padding-top: 120px;
-    background-image: url(../../assets/footer-bg.jpg);
-    position: relative;
-    margin-bottom: 64px;
-    display: flex;
-    justify-content: center;
-    .title {
+.category-wrapper {
+    .header-page {
+        // height: 150px;
+        padding-top: 120px;
+        background-image: url(../../assets/footer-bg.jpg);
         position: relative;
-        z-index: 2;
+        margin-bottom: 64px;
+        display: flex;
+        justify-content: center;
+        .title {
+            position: relative;
+            z-index: 2;
+        }
+        &::after {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-image: linear-gradient(0deg, #0f0f0f, transparent);
+        }
     }
-    &::after {
-        content: '';
-        z-index: 1;
+    .search-container {
+        margin-bottom: 32px;
+        padding: 0 64px;
+        @include tablet {
+            padding: 0 32px;
+        }
+    }
+    .search {
+        position: relative;
+        width: 500px;
+        height: 36px;
+        @include tablet {
+            width: 100%;
+        }
+    }
+    .input-search {
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        border: none;
+        border-radius: 999px;
+        color: $white;
+        padding: 0 24px;
+        font-size: 1.6rem;
+    }
+    .btn-search {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background-image: linear-gradient(0deg, #0f0f0f, transparent);
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
-}
-.search-container {
-    margin-bottom: 32px;
-    padding: 0 64px;
-    @include tablet {
-        padding: 0 32px;
-    }
-}
-.search {
-    position: relative;
-    width: 500px;
-    height: 36px;
-    @include tablet {
-        width: 100%;
-    }
-}
-.input-search {
-    width: 100%;
-    height: 100%;
-    background-color: $black;
-    border: none;
-    border-radius: 999px;
-    color: $white;
-    padding: 0 24px;
-    font-size: 1.6rem;
-}
-.btn-search {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
 }

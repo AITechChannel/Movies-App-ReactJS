@@ -1,15 +1,16 @@
 @import '../../scss/';
 
-.hero-slide-container {
+.banner-slide-container {
     height: 900px;
+    position: relative;
+    margin-bottom: 30px;
+
     @include tablet {
         max-height: 600px;
     }
     @include mobile {
         max-height: 500px;
     }
-    position: relative;
-    margin-bottom: 30px;
 
     &::after {
         z-index: 1;

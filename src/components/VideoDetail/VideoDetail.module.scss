@@ -1,7 +1,7 @@
 @import '../../scss/';
 .video-detail-container {
-    // height: 800px;
     width: 100%;
+
     .banner {
         background-size: cover;
         padding-top: 28%;
@@ -24,6 +24,9 @@
             height: 400px;
             background-image: linear-gradient(0deg, #0f0f0f, transparent);
         }
+        @include mobile {
+            padding-top: 40%;
+        }
     }
     .inner {
         position: relative;
@@ -33,6 +36,11 @@
         display: flex;
         padding: 120px 0;
         width: 80%;
+        @include mobile {
+            width: 100%;
+            padding: 100px 12px 60px 12px;
+            margin-top: -50%;
+        }
     }
     .image {
         width: 30%;
@@ -75,6 +83,10 @@
 
     .iframe-list-container {
         width: 100%;
+        padding: 0 32px;
+        @include mobile {
+            padding: 0 12px;
+        }
     }
 
     .label {

@@ -80,10 +80,6 @@ iframe {
     padding: 0 2rem;
 }
 
-.section__header {
-    @include flex(center, space-between);
-}
-
 p {
     font-size: 1.6rem;
 }

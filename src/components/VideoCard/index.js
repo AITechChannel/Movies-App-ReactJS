@@ -8,18 +8,23 @@ import tmdbApi, { category, movieType, tvType } from '~/api/tmdbApi';
 import apiConfig from '~/api/apiConfig';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { Link, NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
 function VideoCard({ title, category, posterPath, id }) {
     return (
         <div className={cx('card-container')}>
-            <div className={cx('img-tag')} style={{ backgroundImage: `url(${apiConfig.w500Image(posterPath)})` }}>
-                <Button className={cx('btn-icon')} primary to={`/${category}/${id}`}>
-                    <span>
-                        <FontAwesomeIcon icon={faPlay} />
-                    </span>
-                </Button>
-            </div>
-            <h1 className={cx('title')}>{title}</h1>
+            <Link to={`/${category}/${id}`}>
+                <div className={cx('img-tag')} style={{ backgroundImage: `url(${apiConfig.w500Image(posterPath)})` }}>
+                    <Button className={cx('btn-icon')} primary>
+                        <span>
+                            <FontAwesomeIcon icon={faPlay} />
+                        </span>
+                    </Button>
+                </div>
+            </Link>
+            <Link to={`/${category}/${id}`}>
+                <h1 className={cx('title')}>{title}</h1>
+            </Link>
         </div>
     );
 }
