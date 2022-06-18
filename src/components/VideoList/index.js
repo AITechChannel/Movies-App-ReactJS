@@ -48,7 +48,10 @@ function VideoList({ category, type, search, keyword }) {
                     const res = await tmdbApi.search(category, { params });
                     setTotalPages(res.total_pages);
                     setItems(res.results);
-                    setItems((prev) => items.concat(prev));
+                    console.log(res.results.length);
+                    if (page > 1) {
+                        setItems((prev) => items.concat(prev));
+                    }
                 } catch (error) {
                     console.log('Error fecth api video card list');
                 }
@@ -64,25 +67,31 @@ function VideoList({ category, type, search, keyword }) {
     };
 
     return (
-        <div>
-            <div className={cx('list-container')}>
-                <div className={cx('list-item')}>
-                    {items.map((item, i) => (
-                        <VideoCard
-                            key={`category-${i}`}
-                            title={item.title}
-                            posterPath={item.poster_path}
-                            category={category}
-                            id={item.id}
-                        />
-                    ))}
+        <div className={cx('list-container')}>
+            {items.length > 0 && keyword && <h1 className={cx('title')}>{`Search results for "${keyword}"`} </h1>}
+            {items.length === 0 && keyword && <h1 className={cx('title')}>{`Not found for "${keyword}"`} </h1>}
+            {items.length > 0 && (
+                <div className={cx('list')}>
+                    <div className={cx('list-item')}>
+                        {items.map((item, i) => (
+                            <VideoCard
+                                key={`category-${i}`}
+                                title={item.title}
+                                posterPath={item.poster_path}
+                                category={category}
+                                id={item.id}
+                            />
+                        ))}
+                    </div>
                 </div>
-            </div>
-            <div className={cx('load-more')}>
-                <Button disable={page === totalPages} outline small onClick={handOnClickLoadMore}>
-                    Load more
-                </Button>
-            </div>
+            )}
+            {items.length > 0 && (
+                <div className={cx('load-more')}>
+                    <Button disable={page === totalPages} outline small onClick={handOnClickLoadMore}>
+                        Load more
+                    </Button>
+                </div>
+            )}
         </div>
     );
 }

@@ -5,7 +5,6 @@ import Styles from './Button.module.scss';
 const cx = classNames.bind(Styles);
 
 function Button({ children, primary, outline, small, to, href, onClick, disable, className, style }) {
-    console.log(style);
     let Cmp = 'button';
     const props = { onClick };
 

@@ -36,7 +36,7 @@ function VideoDetail({ category, id }) {
                         <img src={apiConfig.w500Image(items.poster_path)} />
                     </div>
                     <div className={cx('content')}>
-                        <h1 className={cx('title')}>{items.title}</h1>
+                        <h1 className={cx('title')}>{items.title ? items.title : items.name}</h1>
                         <div className={cx('genres')}>
                             {items.genres.map((e, i) => (
                                 <span className={cx('label')} key={`genres-${i}`}>

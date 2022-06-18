@@ -27,12 +27,13 @@ function Category() {
         if (searchValue !== '') {
             naviagte(`/Movies-App-ReactJS-TuanAnhDoan/${category}/search/${searchValue}`);
             setSearch(searchValue);
+            setSearchValue('');
         }
     };
 
     useEffect(() => {
         if (keyword) {
-            setSearchValue(keyword);
+            // setSearchValue(keyword);
             setSearch(keyword);
         }
     }, [keyword]);

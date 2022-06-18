@@ -13,7 +13,7 @@ function Footer() {
                 <div className={cx('logo')}>
                     <img src={logo} alt="" />
                 </div>
-                <Link to="/">Movies(Tuananh Doan)</Link>
+                <Link to="/Movies-App-ReactJS-TuanAnhDoan/">Tuananh Doan</Link>
             </div>
             <div className={cx('menu')}>
                 <ul className={cx('menu-list')}>

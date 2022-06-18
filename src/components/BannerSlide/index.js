@@ -56,9 +56,9 @@ function BannerSlide() {
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                // autoplay={{
-                //     delay: 2500,
-                // }}
+                autoplay={{
+                    delay: 2500,
+                }}
                 style={{ height: '100%' }}
             >
                 {movies.map((movie, i) => (

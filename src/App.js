@@ -1,10 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Movies from './pages/Category';
+import { BrowserRouter, rRouter, Route, Routes } from 'react-router-dom';
+import './App.scss';
+import MainLayout from './components/layouts/MainLayout';
 import Category from './pages/Category';
 import Detail from './pages/Detail';
 import Home from './pages/Home';
-import './App.scss';
-import MainLayout from './components/layouts/MainLayout';
 
 const publicRoutes = [
     { path: '/Movies-App-ReactJS-TuanAnhDoan/', component: Home },
