@@ -4,9 +4,12 @@ import apiConfig from '~/api/apiConfig';
 import Button from '~/components/GlobalComponents/Button';
 import Styles from './SlideItem.module.scss';
 
+import { category } from '~/api/tmdbApi';
+
 const cx = classNames.bind(Styles);
 
 function SlideItem({ movie, className, onWatch }) {
+    console.log(movie);
     return (
         <div className={cx('slide-item-container', `${className}`)}>
             <div
@@ -19,7 +22,9 @@ function SlideItem({ movie, className, onWatch }) {
                     <h2>{movie.title}</h2>
                     <p>{movie.overview}</p>
                     <div className={cx('action')}>
-                        <Button primary> Watch now </Button>
+                        <Button primary to={`/Movies-App-ReactJS-TuanAnhDoan/${category.movie}/${movie.id}`}>
+                            Watch now
+                        </Button>
                         <Button outline onClick={onWatch}>
                             Watch trailer
                         </Button>
