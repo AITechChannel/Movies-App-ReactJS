@@ -30,24 +30,21 @@
     .menu {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         width: 100%;
         padding: 20px 200px;
-
-        @include tablet {
-            padding: 32px;
-        }
-        // @include mobile {
-        //     padding: 0 12px;
-        // }
-    }
-    .link {
         font-size: 2.2rem;
-        li {
-            margin: 10px 0;
+        @include tablet {
+            padding: 10px 32px;
         }
-        &:hover {
-            cursor: pointer;
-            transition: all ease 0.3s;
+    }
+
+    .menu-item {
+        width: 33.3333%;
+        margin: 10px 0;
+
+        @include mobile {
+            width: 50%;
         }
     }
 }

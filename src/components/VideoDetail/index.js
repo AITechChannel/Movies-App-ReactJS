@@ -8,8 +8,11 @@ import IframeList from '../IframeList';
 import styles from './VideoDetail.module.scss';
 const cx = classNames.bind(styles);
 
-function VideoDetail({ category, id }) {
+function VideoDetail({ category, id, onError }) {
     const [items, setItems] = useState(null);
+    const handleNotFound = (name) => {
+        onError(name);
+    };
 
     useEffect(() => {
         const params = {};
@@ -19,6 +22,7 @@ function VideoDetail({ category, id }) {
                 setItems(res);
             } catch (error) {
                 console.log('Error fecth asdfsdfcard list');
+                handleNotFound('error');
             }
         };
         getData();

@@ -42,6 +42,7 @@
         color: $main-color;
     }
     @include mobile {
-        display: none;
+        right: 5px;
+        top: -5px;
     }
 }

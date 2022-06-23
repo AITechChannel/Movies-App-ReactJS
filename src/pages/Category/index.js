@@ -18,6 +18,7 @@ function Category() {
     const [search, setSearch] = useState('');
 
     const { category, keyword } = useParams();
+    console.log(category);
 
     const handleOnChangeInput = (e) => {
         setSearchValue(e.target.value);

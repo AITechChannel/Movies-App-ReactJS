@@ -8,7 +8,7 @@ function Modal({ children, onClose }) {
     const closeRef = useRef();
 
     const handleOnClickInner = (e) => {
-        e.stopPropagation();
+        // e.stopPropagation();
     };
     return (
         <div className={cx('container')} onClick={onClose}>

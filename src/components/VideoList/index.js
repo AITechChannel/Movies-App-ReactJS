@@ -24,7 +24,7 @@ function VideoList({ category, type, search, keyword }) {
                     setItems(res.results);
                     setItems((prev) => items.concat(prev));
                 } catch (error) {
-                    console.log('Error fecth api video card list');
+                    alert('the requested page not found');
                 }
             };
             getVideoCardList();
@@ -37,7 +37,7 @@ function VideoList({ category, type, search, keyword }) {
                     setItems(res.results);
                     setItems((prev) => items.concat(prev));
                 } catch (error) {
-                    console.log('Error fecth api video card list');
+                    alert('the requested page not found');
                 }
             };
             getVideoCardList();
@@ -53,7 +53,7 @@ function VideoList({ category, type, search, keyword }) {
                         setItems((prev) => items.concat(prev));
                     }
                 } catch (error) {
-                    console.log('Error fecth api video card list');
+                    console.log('page not found');
                 }
             };
             getVideoCardList();

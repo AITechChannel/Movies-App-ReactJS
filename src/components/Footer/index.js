@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Footer.module.scss';
 import logo from '~/assets/logo.png';
 import { Link } from 'react-router-dom';
-
+import menuItem from './menuItem';
 const cx = classNames.bind(styles);
 
 function Footer() {
@@ -16,48 +16,13 @@ function Footer() {
                 <Link to="/">Tuananh Doan</Link>
             </div>
             <div className={cx('menu')}>
-                <ul className={cx('menu-list')}>
-                    <Link to="/" className={cx('link')}>
-                        <li>Home</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>Contact Us</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>Term of services</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>About Us</li>
-                    </Link>
-                </ul>
-                <ul className={cx('menu-list')}>
-                    <Link to="/" className={cx('link')}>
-                        <li>Live</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>FAQ</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>Premium</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>Pravacy policy</li>
-                    </Link>
-                </ul>
-                <ul className={cx('menu-list')}>
-                    <Link to="/" className={cx('link')}>
-                        <li>You must watch</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>Recent release</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>Top IMDB</li>
-                    </Link>
-                    <Link to="/" className={cx('link')}>
-                        <li>More</li>
-                    </Link>
-                </ul>
+                {menuItem.map((e, i) => (
+                    <ul key={`menuItem_${i}`} className={cx('menu-item')}>
+                        <li>
+                            <Link to={e.to}>{e.name}</Link>
+                        </li>
+                    </ul>
+                ))}
             </div>
         </div>
     );

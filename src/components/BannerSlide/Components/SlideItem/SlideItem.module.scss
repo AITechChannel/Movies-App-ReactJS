@@ -5,6 +5,8 @@
     height: 100%;
 
     .inner {
+        position: relative;
+        z-index: 2;
         box-sizing: border-box;
         padding: 120px 5%;
         display: flex;
