@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Button from '../GlobalComponents/Button';
-import classNames from 'classnames/bind';
-import styles from './VideoCard.module.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import tmdbApi, { category, movieType, tvType } from '~/api/tmdbApi';
-import apiConfig from '~/api/apiConfig';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
+import 'swiper/css';
+import apiConfig from '~/api/apiConfig';
+import Button from '../GlobalComponents/Button';
+import styles from './VideoCard.module.scss';
 const cx = classNames.bind(styles);
 function VideoCard({ title, category, posterPath, id }) {
     return (

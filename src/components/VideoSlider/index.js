@@ -17,7 +17,6 @@ function VideoSlider({ methodName, category, type, id, title, more }) {
             const getVideoCardList = async () => {
                 try {
                     const res = await tmdbApi.getMoviesList(type, { params });
-                    console.log(res);
 
                     setItems(res.results);
                 } catch (error) {
@@ -31,7 +30,6 @@ function VideoSlider({ methodName, category, type, id, title, more }) {
                 try {
                     const res = await tmdbApi.getTvList(type, { params });
 
-                    console.log(res);
                     setItems(res.results);
                 } catch (error) {
                     console.log('Error fecth api video card list dsf');
@@ -49,7 +47,7 @@ function VideoSlider({ methodName, category, type, id, title, more }) {
             };
             getVideoCardList();
         }
-    }, [id]);
+    }, [id, category, methodName, type]);
 
     return (
         <div className={cx('movie-list-container')}>

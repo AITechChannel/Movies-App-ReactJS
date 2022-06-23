@@ -22,7 +22,7 @@ function VideoDetail({ category, id }) {
             }
         };
         getData();
-    }, [id]);
+    }, [category, id]);
 
     return (
         items && (
@@ -33,7 +33,7 @@ function VideoDetail({ category, id }) {
                 ></div>
                 <div className={cx('inner')}>
                     <div className={cx('image')}>
-                        <img src={apiConfig.w500Image(items.poster_path)} />
+                        <img src={apiConfig.w500Image(items.poster_path)} alt="img poster" />
                     </div>
                     <div className={cx('content')}>
                         <h1 className={cx('title')}>{items.title ? items.title : items.name}</h1>

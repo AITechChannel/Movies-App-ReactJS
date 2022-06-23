@@ -27,7 +27,9 @@ function CastList({ id }) {
             <div className={cx('cast-list-container')}>
                 {items.cast.slice(0, 5).map((e, i) => (
                     <div key={`cast- ${i}`} className={cx('cast-item')}>
-                        {e.profile_path && <img key={`cast_${i}`} src={apiConfig.w500Image(e.profile_path)} />}
+                        {e.profile_path && (
+                            <img key={`cast_${i}`} src={apiConfig.w500Image(e.profile_path)} alt="img cast" />
+                        )}
                         {e.profile_path && <p>{e.name}</p>}
                     </div>
                 ))}

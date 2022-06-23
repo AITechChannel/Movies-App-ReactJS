@@ -20,7 +20,7 @@ function Button({ children, primary, outline, small, to, href, onClick, disable,
     const classNames = cx('btn', { primary, outline, small, disable });
 
     return (
-        <Cmp style={style} className={classNames + ' ' + `${className}`} {...props}>
+        <Cmp style={style} className={classNames.concat(' ', `${className}`)} {...props}>
             {children}
         </Cmp>
     );

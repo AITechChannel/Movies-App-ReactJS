@@ -1,14 +1,11 @@
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 import { GiFilmSpool } from 'react-icons/gi';
 import { MdMonitor } from 'react-icons/md';
-import classNames from 'classnames/bind';
-import styles from './Header.module.scss';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '~/assets/logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTv } from '@fortawesome/free-solid-svg-icons';
+import styles from './Header.module.scss';
 const cx = classNames.bind(styles);
 
 const headerNav = [

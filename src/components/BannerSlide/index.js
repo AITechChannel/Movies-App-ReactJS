@@ -20,11 +20,10 @@ function BannerSlide() {
 
     const [videos, setVideos] = useState([]);
 
-    const handleWatch = useCallback((movie, i) => {
+    const handleWatch = (movie, i) => {
         setMovieCurrent(movie);
         setShowTrailer(true);
-        console.log(movie);
-    });
+    };
 
     useEffect(() => {
         const getMovies = async () => {
@@ -80,7 +79,11 @@ function BannerSlide() {
             {showTrailer && (
                 <Modal onClose={() => setShowTrailer(false)}>
                     {videos.length > 0 && (
-                        <iframe src={'https://youtube.com/embed/' + videos[0].key} type="video/web"></iframe>
+                        <iframe
+                            title="iframe title"
+                            src={'https://youtube.com/embed/' + videos[0].key}
+                            type="video/web"
+                        ></iframe>
                     )}
                 </Modal>
             )}

@@ -42,7 +42,7 @@ function Category() {
         const handleEnter = (e) => {
             console.log('enter');
             // e.preventDefault();
-            if (e.keyCode == 13) {
+            if (e.keyCode === 13) {
                 console.log('search');
                 handleSearch();
             }
@@ -56,7 +56,7 @@ function Category() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location]);
+    }, [location, handleSearch]);
 
     return (
         <div className={cx('category-wrapper')}>

@@ -17,44 +17,44 @@ function Footer() {
             </div>
             <div className={cx('menu')}>
                 <ul className={cx('menu-list')}>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Home</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Contact Us</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Term of services</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>About Us</li>
                     </a>
                 </ul>
                 <ul className={cx('menu-list')}>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Live</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>FAQ</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Premium</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Pravacy policy</li>
                     </a>
                 </ul>
                 <ul className={cx('menu-list')}>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>You must watch</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Recent release</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>Top IMDB</li>
                     </a>
-                    <a className={cx('link')}>
+                    <a href="" className={cx('link')}>
                         <li>More</li>
                     </a>
                 </ul>

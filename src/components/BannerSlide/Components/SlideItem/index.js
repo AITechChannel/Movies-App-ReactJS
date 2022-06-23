@@ -9,7 +9,6 @@ import { category } from '~/api/tmdbApi';
 const cx = classNames.bind(Styles);
 
 function SlideItem({ movie, className, onWatch }) {
-    console.log(movie);
     return (
         <div className={cx('slide-item-container', `${className}`)}>
             <div
@@ -31,7 +30,7 @@ function SlideItem({ movie, className, onWatch }) {
                     </div>
                 </div>
                 <div className={cx('image')}>
-                    <img src={apiConfig.w500Image(movie.poster_path)} />
+                    <img src={apiConfig.w500Image(movie.poster_path)} alt="Img poster" />
                 </div>
             </div>
         </div>
