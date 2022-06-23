@@ -25,7 +25,7 @@ function Category() {
 
     const handleSearch = () => {
         if (searchValue !== '') {
-            naviagte(`/Movies-App-ReactJS-TuanAnhDoan/${category}/search/${searchValue}`);
+            naviagte(`/${category}/search/${searchValue}`);
             setSearch(searchValue);
             setSearchValue('');
         }
@@ -42,7 +42,6 @@ function Category() {
         console.log('enter');
         // e.preventDefault();
         if (e.keyCode === 13) {
-            console.log('search');
             handleSearch();
         }
     };
@@ -52,7 +51,7 @@ function Category() {
         return () => {
             window.removeEventListener('keydown', handleEnter);
         };
-    }, []);
+    }, [searchValue]);
 
     useEffect(() => {
         window.scrollTo(0, 0);

@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 function VideoCard({ title, category, posterPath, id }) {
     return (
         <div className={cx('card-container')}>
-            <Link to={`/Movies-App-ReactJS-TuanAnhDoan/${category}/${id}`}>
+            <Link to={`/${category}/${id}`}>
                 <div className={cx('img-tag')} style={{ backgroundImage: `url(${apiConfig.w500Image(posterPath)})` }}>
                     <Button className={cx('btn-icon')} primary>
                         <span>
@@ -19,7 +19,7 @@ function VideoCard({ title, category, posterPath, id }) {
                     </Button>
                 </div>
             </Link>
-            <Link to={`/Movies-App-ReactJS-TuanAnhDoan/${category}/${id}`}>
+            <Link to={`/${category}/${id}`}>
                 <h1 className={cx('title')}>{title}</h1>
             </Link>
         </div>

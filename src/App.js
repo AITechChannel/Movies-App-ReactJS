@@ -6,10 +6,10 @@ import Detail from './pages/Detail';
 import Home from './pages/Home';
 
 const publicRoutes = [
-    { path: '/Movies-App-ReactJS-TuanAnhDoan/', component: Home },
-    { path: '/Movies-App-ReactJS-TuanAnhDoan/:category', component: Category },
-    { path: '/Movies-App-ReactJS-TuanAnhDoan/:category/search/:keyword', component: Category },
-    { path: '/Movies-App-ReactJS-TuanAnhDoan/:category/:id', component: Detail },
+    { path: '/', component: Home },
+    { path: '/:category', component: Category },
+    { path: '/:category/search/:keyword', component: Category },
+    { path: '/:category/:id', component: Detail },
 ];
 
 function App() {

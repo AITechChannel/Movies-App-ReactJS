@@ -58,7 +58,7 @@ function VideoList({ category, type, search, keyword }) {
             };
             getVideoCardList();
         }
-    }, [page, search, category, items, keyword, type]);
+    }, [page, search, category, keyword, type]);
 
     const handOnClickLoadMore = () => {
         if (page < totalPages) {

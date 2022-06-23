@@ -21,7 +21,7 @@ function SlideItem({ movie, className, onWatch }) {
                     <h2>{movie.title}</h2>
                     <p>{movie.overview}</p>
                     <div className={cx('action')}>
-                        <Button primary to={`/Movies-App-ReactJS-TuanAnhDoan/${category.movie}/${movie.id}`}>
+                        <Button primary to={`/${category.movie}/${movie.id}`}>
                             Watch now
                         </Button>
                         <Button outline onClick={onWatch}>
