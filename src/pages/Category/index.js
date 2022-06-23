@@ -38,21 +38,21 @@ function Category() {
         }
     }, [keyword]);
 
+    const handleEnter = (e) => {
+        console.log('enter');
+        // e.preventDefault();
+        if (e.keyCode === 13) {
+            console.log('search');
+            handleSearch();
+        }
+    };
     useEffect(() => {
-        const handleEnter = (e) => {
-            console.log('enter');
-            // e.preventDefault();
-            if (e.keyCode === 13) {
-                console.log('search');
-                handleSearch();
-            }
-        };
         window.addEventListener('keydown', handleEnter);
 
         return () => {
             window.removeEventListener('keydown', handleEnter);
         };
-    }, [searchValue, handleSearch]);
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
