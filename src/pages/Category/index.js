@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { movieType, tvType } from '~/api/tmdbApi';
-import Button from '~/components/GlobalComponents/Button';
 import '~/components/BannerSlide';
+import Button from '~/components/GlobalComponents/Button';
 import Videolist from '~/components/VideoList';
 import styles from './Category.module.scss';
 const cx = classNames.bind(styles);
@@ -52,11 +52,11 @@ function Category() {
         return () => {
             window.removeEventListener('keydown', handleEnter);
         };
-    }, [searchValue]);
+    }, [searchValue, handleSearch]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location, handleSearch]);
+    }, [location]);
 
     return (
         <div className={cx('category-wrapper')}>

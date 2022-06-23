@@ -17,46 +17,46 @@ function Footer() {
             </div>
             <div className={cx('menu')}>
                 <ul className={cx('menu-list')}>
-                    <a href="" className={cx('link')}>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Home</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Contact Us</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Term of services</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>About Us</li>
-                    </a>
+                    </Link>
                 </ul>
                 <ul className={cx('menu-list')}>
-                    <a href="" className={cx('link')}>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Live</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>FAQ</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Premium</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Pravacy policy</li>
-                    </a>
+                    </Link>
                 </ul>
                 <ul className={cx('menu-list')}>
-                    <a href="" className={cx('link')}>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>You must watch</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Recent release</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>Top IMDB</li>
-                    </a>
-                    <a href="" className={cx('link')}>
+                    </Link>
+                    <Link to="/Movies-App-ReactJS-TuanAnhDoan/" className={cx('link')}>
                         <li>More</li>
-                    </a>
+                    </Link>
                 </ul>
             </div>
         </div>
