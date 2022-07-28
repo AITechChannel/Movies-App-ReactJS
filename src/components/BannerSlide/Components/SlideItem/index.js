@@ -8,9 +8,9 @@ import { category } from '~/api/tmdbApi';
 
 const cx = classNames.bind(Styles);
 
-function SlideItem({ movie, className, onWatch }) {
+function SlideItem({ movie, className, onWatch, active }) {
     return (
-        <div className={cx('slide-item-container', `${className}`)}>
+        <div className={cx('slide-item-container', `${className}`, active ? 'active' : null)}>
             <div
                 style={{
                     backgroundImage: `url(${apiConfig.originalImage(movie.backdrop_path)})`,

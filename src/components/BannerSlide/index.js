@@ -56,7 +56,7 @@ function BannerSlide() {
                 slidesPerView={1}
                 loop={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 3000,
                 }}
                 style={{ height: '100%' }}
             >
@@ -65,6 +65,7 @@ function BannerSlide() {
                         {({ isActive }) => (
                             <>
                                 <SlideItem
+                                    active={isActive}
                                     movie={movie}
                                     className={isActive ? 'active' : ''}
                                     onWatch={() => handleWatch(movie, i)}

@@ -35,6 +35,8 @@
         img {
             width: 30%;
             border-radius: 40px;
+            transform: scale(0);
+            transition: all ease-in-out 0.6s;
         }
         @include tablet {
             display: none;
@@ -53,13 +55,48 @@
         h2 {
             font-size: 6rem;
             line-height: 6rem;
+            transform: translateY(-120px);
+            opacity: 0;
+            transition: all ease 0.5s;
+            transition-delay: 0.4s;
         }
         p {
             margin: 3.8rem 0;
             font-size: 1.6rem;
+            transform: translateY(-70px);
+            opacity: 0;
+            transition: all ease 0.5s;
+            transition-delay: 0.9s;
         }
     }
 
     .action {
+        transform: translateY(-80px);
+        opacity: 0;
+        transition: all ease 0.5s;
+        transition-delay: 1.3s;
+    }
+}
+
+.slide-item-container.active {
+    .image {
+        img {
+            transform: scale(1);
+        }
+    }
+    .content {
+        h2 {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .action {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
